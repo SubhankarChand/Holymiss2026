@@ -2,17 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Navigation() {
-  const navStyle = { color: 'white', textDecoration: 'none', padding: '18px 25px', display: 'block', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px', transition: 'all 0.3s ease' };
+  const navStyle = { 
+    color: 'white', 
+    textDecoration: 'none', 
+    padding: '18px 25px', 
+    display: 'block', 
+    fontWeight: 'bold', 
+    textTransform: 'uppercase', 
+    letterSpacing: '1px', 
+    transition: 'all 0.3s ease' 
+  };
 
   return (
     <nav style={{ backgroundColor: 'var(--emerald-green)', borderBottom: '5px solid var(--saffron)', position: 'sticky', top: 0, zIndex: 1000, display: 'flex', justifyContent: 'center', boxShadow: '0 4px 10px rgba(255, 143, 28, 0.2)' }}>
       <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexWrap: 'wrap' }}>
+        {/* Home scroll links */}
         <li><a href="/#who-we-are" style={navStyle}>Who We Are</a></li>
         
+        {/* Animated Dropdown Menu for Subpages */}
         <li className="dropdown">
           <a href="/#what-we-do" style={navStyle}>How We Are <i className="fa fa-caret-down"></i></a>
           <ul className="dropdown-menu">
-            {/* Clean React Links without .html extensions */}
+            {/* Clean React routing parameters */}
             <li><Link to="/mission">Our Mission</Link></li>
             <li><Link to="/vision">Our Vision</Link></li>
           </ul>
@@ -22,7 +33,7 @@ export default function Navigation() {
         <li><a href="/#gallery" style={navStyle}>Gallery</a></li>
         <li><a href="/#achievements" style={navStyle}>Our Achievement</a></li>
         
-        {/* Clean React Link to Testimonial Component */}
+        {/* Testimonial Page Link */}
         <li><Link to="/testimonial" style={navStyle}>Testimonial</Link></li>
         
         <li><a href="/#reaches-us" style={navStyle}>Reaches Us</a></li>
