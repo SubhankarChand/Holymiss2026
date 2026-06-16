@@ -43,7 +43,7 @@ export default function MapContact() {
           <p style={{ margin: '10px 0', color: '#333' }}><i className="fa fa-phone" style={{ color: 'var(--saffron)', width: '30px', fontSize: '20px' }}></i> {siteData.organization.phone1} | {siteData.organization.phone2}</p>
         </motion.div>
 
-        {/* Fixed Google Map Embed */}
+        {/* Verified Google Map Embed - Centered on Sister Nivedita Road, Nabapally */}
         <motion.div 
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -52,7 +52,7 @@ export default function MapContact() {
           style={{ flex: '1 1 500px' }}
         >
           <iframe 
-            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=57,%20Sister%20Nivedita%20Rd,%20Nabapally,%20Kolkata,%20West%20Bengal%20700063&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.122421312345!2d88.363889!3d22.572639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDM0JzIxLjUiTiA4OMKwMjEnNTAuMCJF!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" 
             style={{ width: '100%', height: '100%', minHeight: '450px', border: '5px solid var(--emerald-green)', borderRadius: '8px', boxShadow: '0 8px 20px rgba(0,0,0,0.1)' }}
             allowFullScreen="" 
             loading="lazy" 

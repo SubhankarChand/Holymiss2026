@@ -7,13 +7,12 @@ export default function Navigation() {
   return (
     <nav style={{ backgroundColor: 'var(--emerald-green)', borderBottom: '5px solid var(--saffron)', position: 'sticky', top: 0, zIndex: 1000, display: 'flex', justifyContent: 'center', boxShadow: '0 4px 10px rgba(255, 143, 28, 0.2)' }}>
       <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexWrap: 'wrap' }}>
-        {/* We use standard 'a' tags for scrolling down the homepage */}
         <li><a href="/#who-we-are" style={navStyle}>Who We Are</a></li>
         
         <li className="dropdown">
           <a href="/#what-we-do" style={navStyle}>How We Are <i className="fa fa-caret-down"></i></a>
           <ul className="dropdown-menu">
-            {/* We use React Router 'Link' for swapping entire pages */}
+            {/* Clean React Links without .html extensions */}
             <li><Link to="/mission">Our Mission</Link></li>
             <li><Link to="/vision">Our Vision</Link></li>
           </ul>
@@ -23,7 +22,7 @@ export default function Navigation() {
         <li><a href="/#gallery" style={navStyle}>Gallery</a></li>
         <li><a href="/#achievements" style={navStyle}>Our Achievement</a></li>
         
-        {/* We use React Router 'Link' for swapping to the Testimonial page */}
+        {/* Clean React Link to Testimonial Component */}
         <li><Link to="/testimonial" style={navStyle}>Testimonial</Link></li>
         
         <li><a href="/#reaches-us" style={navStyle}>Reaches Us</a></li>
