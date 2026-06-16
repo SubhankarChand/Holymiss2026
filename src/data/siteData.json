@@ -1,0 +1,27 @@
+{
+  "organization": {
+    "name": "Holy Mission",
+    "subtitle": "Children’s Welfare & Rural Development",
+    "address1": "57, Sister Nivedita Rd, Manjhi Para, Nabapally, Kolkata, West Bengal 700063",
+    "address2": "245/ Sister Nivedita Road. Kolkata -700065",
+    "email": "info@holymission.org.in",
+    "phone1": "+91 9831152892",
+    "phone2": "+91 9123082410"
+  },
+  "stats": [
+    { "count": 10000, "label": "Children Supported", "suffix": "+" },
+    { "count": 500, "label": "Farmers Empowered", "suffix": "+" },
+    { "count": 100, "label": "Zero-Waste Villages", "suffix": "+" },
+    { "count": 2026, "label": "Years of Action", "prefix": "2005-" }
+  ],
+  "credentials": [
+    { "authority": "Society Registration Act", "id": "S/ 1L/32865 of 2005-2006" },
+    { "authority": "Section 12(A)", "id": "AADAH5363HE20251" },
+    { "authority": "Section 80 G", "id": "AADAH5263HF 20261" },
+    { "authority": "Permanent Account No. (PAN)", "id": "AADAH 5363H" },
+    { "authority": "Tax Deduction Account (TAN)", "id": "CALH04774 A" },
+    { "authority": "NGO DARPAN (NITI AAYOG)", "id": "WB/2022/0304779" },
+    { "authority": "FCRA Registration", "id": "147120770" },
+    { "authority": "CSR-1 Registration", "id": "CSR00020235" }
+  ]
+}
