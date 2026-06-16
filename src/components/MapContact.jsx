@@ -15,7 +15,6 @@ export default function MapContact() {
       </motion.h2>
       
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px' }}>
-        
         {/* Contact Info Card */}
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
@@ -43,7 +42,7 @@ export default function MapContact() {
           <p style={{ margin: '10px 0', color: '#333' }}><i className="fa fa-phone" style={{ color: 'var(--saffron)', width: '30px', fontSize: '20px' }}></i> {siteData.organization.phone1} | {siteData.organization.phone2}</p>
         </motion.div>
 
-        {/* Verified Google Map Embed - Centered on Sister Nivedita Road, Nabapally */}
+        {/* Google Map */}
         <motion.div 
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -52,14 +51,14 @@ export default function MapContact() {
           style={{ flex: '1 1 500px' }}
         >
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.122421312345!2d88.363889!3d22.572639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDM0JzIxLjUiTiA4OMKwMjEnNTAuMCJF!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.578641889048!2d88.310523!3d22.4670118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027be8278fd85b%3A0xafda9698101ffce5!2s57%2C%20Sister%20Nivedita%20Rd%2C%20Manjhi%20Para%2C%20Nabapally%2C%20Kolkata%2C%20West%20Bengal%20700063!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" 
             style={{ width: '100%', height: '100%', minHeight: '450px', border: '5px solid var(--emerald-green)', borderRadius: '8px', boxShadow: '0 8px 20px rgba(0,0,0,0.1)' }}
             allowFullScreen="" 
             loading="lazy" 
             referrerPolicy="no-referrer-when-downgrade"
+            title="Holy Mission Location Map"
           ></iframe>
         </motion.div>
-
       </div>
     </section>
   );

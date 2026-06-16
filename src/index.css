@@ -47,3 +47,43 @@ html { scroll-behavior: smooth; }
   content: ""; display: block; width: 80px; height: 5px;
   background: var(--saffron); margin: 15px auto 0; border-radius: 5px;
 }
+
+/* Fix for dropdown click on mobile */
+.dropdown span {
+  cursor: pointer;
+}
+
+/* Ensure dropdown menu items are clickable */
+.dropdown-menu li a {
+  pointer-events: auto !important;
+}
+
+/* Fix for navigation links */
+nav a, nav span {
+  font-size: 14px;
+}
+
+/* Make sure dropdown works on all devices */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: relative;
+    top: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: none;
+    background-color: var(--saffron-dark);
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-menu li a {
+    padding: 12px 20px !important;
+    padding-left: 40px !important;
+  }
+  
+  .dropdown-menu li a:hover {
+    padding-left: 50px !important;
+  }
+}

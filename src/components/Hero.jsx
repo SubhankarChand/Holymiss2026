@@ -26,7 +26,7 @@ export default function Hero() {
           EMPOWERING LIVES. <span style={{ color: 'var(--saffron)' }}>RESTORING HOPE.</span>
         </h2>
         <p style={{ fontSize: '20px', maxWidth: '900px', margin: '20px auto', lineHeight: '1.6' }}>
-          Founded in 2005 and rooted in Swami Vivekananda’s timeless vision: service to humanity is the truest form of worship. We bridge the gap between resources and marginalized populations.
+          Founded in 2005 and rooted in Swami Vivekananda's timeless vision: service to humanity is the truest form of worship. We bridge the gap between resources and marginalized populations.
         </p>
       </motion.div>
     </section>
