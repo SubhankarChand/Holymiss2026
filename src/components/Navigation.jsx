@@ -3,54 +3,69 @@ import { Link } from 'react-router-dom';
 
 export default function Navigation() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navStyle = { 
+  const navLinkStyle = { 
     color: 'white', 
     textDecoration: 'none', 
-    padding: '18px 25px', 
+    padding: '15px 20px', 
     display: 'block', 
     fontWeight: 'bold', 
     textTransform: 'uppercase', 
     letterSpacing: '1px', 
-    transition: 'all 0.3s ease',
-    fontSize: '14px',
-    cursor: 'pointer',
-    border: 'none',
-    background: 'none'
+    fontSize: '14px'
   };
 
   return (
-    <nav style={{ backgroundColor: 'var(--emerald-green)', borderBottom: '5px solid var(--saffron)', position: 'sticky', top: 0, zIndex: 1000, display: 'flex', justifyContent: 'center', boxShadow: '0 4px 10px rgba(255, 143, 28, 0.2)' }}>
-      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
-        <li><a href="/#who-we-are" style={navStyle}>Who We Are</a></li>
+    <nav className="green-navbar">
+      {/* Mobile Hamburger Toggle Button */}
+      <button 
+        className="menu-toggle-btn" 
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        aria-label="Toggle Navigation Menu"
+      >
+        <i className={`fa ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i> MENU
+      </button>
+
+      <ul className={`nav-links-list ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+        <li>
+          <a href="/#who-we-are" style={navLinkStyle} onClick={() => setIsMobileMenuOpen(false)}>
+            Who We Are
+          </a>
+        </li>
         
-        {/* Toggleable Dropdown Menu Layout */}
         <li 
           className="dropdown"
           onMouseEnter={() => setDropdownOpen(true)}
           onMouseLeave={() => setDropdownOpen(false)}
-          style={{ position: 'relative' }}
         >
           <button 
+            className="dropdown-trigger-btn"
             onClick={() => setDropdownOpen(!dropdownOpen)} 
-            style={navStyle}
-            aria-haspopup="true"
-            aria-expanded={dropdownOpen}
+            style={navLinkStyle}
           >
             How We Are <i className="fa fa-caret-down" style={{ marginLeft: '5px' }}></i>
           </button>
           
           <ul className={`dropdown-menu ${dropdownOpen ? 'show-menu' : ''}`}>
-            <li><Link to="/mission" onClick={() => setDropdownOpen(false)}>Our Mission</Link></li>
-            <li><Link to="/vision" onClick={() => setDropdownOpen(false)}>Our Vision</Link></li>
+            <li>
+              <Link to="/mission" onClick={() => { setDropdownOpen(false); setIsMobileMenuOpen(false); }}>
+                Our Mission
+              </Link>
+            </li>
+            <li>
+              <Link to="/vision" onClick={() => { setDropdownOpen(false); setIsMobileMenuOpen(false); }}>
+                Our Vision
+              </Link>
+            </li>
           </ul>
         </li>
         
-        <li><a href="/#where-we-are" style={navStyle}>Where We Are</a></li>
-        <li><a href="/#gallery" style={navStyle}>Gallery</a></li>
-        <li><a href="/#achievements" style={navStyle}>Our Achievement</a></li>
-        <li><Link to="/testimonial" style={navStyle}>Testimonial</Link></li>
-        <li><a href="/#reaches-us" style={navStyle}>Reaches Us</a></li>
+        <li><a href="/#where-we-are" style={navLinkStyle} onClick={() => setIsMobileMenuOpen(false)}>Where We Are</a></li>
+        <li><a href="/#gallery" style={navLinkStyle} onClick={() => setIsMobileMenuOpen(false)}>Gallery</a></li>
+        <li><a href="/#achievements" style={navLinkStyle} onClick={() => setIsMobileMenuOpen(false)}>Our Achievement</a></li>
+        <li><Link to="/testimonial" style={navLinkStyle} onClick={() => setIsMobileMenuOpen(false)}>Testimonial</Link></li>
+        <li><a href="/#reaches-us" style={navLinkStyle} onClick={() => setIsMobileMenuOpen(false)}>Reaches Us</a></li>
       </ul>
     </nav>
   );
