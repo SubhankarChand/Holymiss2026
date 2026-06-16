@@ -19,26 +19,47 @@ body {
 
 html { scroll-behavior: smooth; }
 
-/* Navigation Dropdown */
+/* Navigation Dropdown core specs */
 .dropdown { position: relative; }
 .dropdown-menu {
-  visibility: hidden; opacity: 0; position: absolute;
-  background-color: var(--saffron); min-width: 220px;
-  box-shadow: 0px 10px 20px rgba(0,0,0,0.15); z-index: 1000;
-  top: 120%; left: 0; padding: 0; border-radius: 0 0 6px 6px;
+  display: block;
+  visibility: hidden; 
+  opacity: 0; 
+  position: absolute;
+  background-color: var(--saffron); 
+  min-width: 220px;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.15); 
+  z-index: 1000;
+  top: 120%; 
+  left: 0; 
+  padding: 0; 
+  border-radius: 0 0 6px 6px;
+  transform: translateY(15px);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   list-style: none;
 }
-.dropdown:hover .dropdown-menu { visibility: visible; opacity: 1; top: 100%; }
+
+/* Toggled active state class trigger from mouse capture scripts */
+.dropdown-menu.show-menu { 
+  visibility: visible; 
+  opacity: 1; 
+  top: 100%;
+  transform: translateY(0);
+}
+
 .dropdown-menu li { border-bottom: 1px solid rgba(255,255,255,0.2); }
 .dropdown-menu li:last-child { border-bottom: none; }
 .dropdown-menu li a {
-  padding: 15px 20px; color: var(--pure-white); display: block;
-  text-decoration: none; transition: 0.2s ease; text-transform: uppercase; font-weight: bold;
+  padding: 15px 20px; 
+  color: var(--pure-white); 
+  display: block;
+  text-decoration: none; 
+  transition: 0.2s ease; 
+  text-transform: uppercase; 
+  font-weight: bold;
 }
 .dropdown-menu li a:hover { background-color: var(--saffron-dark); padding-left: 25px; }
 
-/* General utility */
 .section-title {
   color: var(--royal-blue); font-weight: 800; text-transform: uppercase;
   text-align: center; margin-bottom: 50px; font-size: 32px;
@@ -48,42 +69,65 @@ html { scroll-behavior: smooth; }
   background: var(--saffron); margin: 15px auto 0; border-radius: 5px;
 }
 
-/* Fix for dropdown click on mobile */
-.dropdown span {
-  cursor: pointer;
+/* --- INFINITE SCROLLING GALLERY CAROUSEL TRACK --- */
+.carousel-viewport-wrapper {
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 0;
+  position: relative;
+  background: white;
 }
 
-/* Ensure dropdown menu items are clickable */
-.dropdown-menu li a {
-  pointer-events: auto !important;
+.carousel-viewport-wrapper::before,
+.carousel-viewport-wrapper::after {
+  content: ""; height: 100%; position: absolute; width: 150px; z-index: 2; pointer-events: none;
+}
+.carousel-viewport-wrapper::before { left: 0; top: 0; background: linear-gradient(to right, white 0%, rgba(255,255,255,0) 100%); }
+.carousel-viewport-wrapper::after { right: 0; top: 0; background: linear-gradient(to left, white 0%, rgba(255,255,255,0) 100%); }
+
+.infinite-carousel-track {
+  display: flex;
+  width: calc(350px * 18);
+  animation: continuousLoopStream 32s linear infinite;
+}
+.infinite-carousel-track:hover { animation-play-state: paused; }
+
+@keyframes continuousLoopStream {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-350px * 6)); }
 }
 
-/* Fix for navigation links */
-nav a, nav span {
-  font-size: 14px;
+/* --- ADVANCED GLOBAL RESPONSIVE ADJUSTMENTS (MEDIA QUERIES) --- */
+@media (max-width: 992px) {
+  .section-title { font-size: 28px; }
+  .infinite-carousel-track { animation-duration: 22s; }
 }
 
-/* Make sure dropdown works on all devices */
 @media (max-width: 768px) {
+  nav ul { flex-direction: column; width: 100%; padding: 10px 0 !important; }
+  nav ul li { width: 100%; text-align: center; }
+  
   .dropdown-menu {
-    position: relative;
+    position: relative !important;
     top: 0 !important;
+    left: 0 !important;
+    width: 100%;
     visibility: visible !important;
     opacity: 1 !important;
+    transform: none !important;
+    box-shadow: none !important;
     display: none;
     background-color: var(--saffron-dark);
   }
   
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
+  .dropdown-menu.show-menu { display: block; }
+  .dropdown-menu li a { padding-left: 30px !important; }
   
-  .dropdown-menu li a {
-    padding: 12px 20px !important;
-    padding-left: 40px !important;
-  }
+  /* Top Title text reduction to avoid truncation wrap on mobile viewports */
+  h1 { font-size: 26px !important; }
+  .section-title { font-size: 24px; }
   
-  .dropdown-menu li a:hover {
-    padding-left: 50px !important;
-  }
+  /* Layout columns compression overrides */
+  iframe { min-height: 320px !important; }
+  .carousel-viewport-wrapper::before, .carousel-viewport-wrapper::after { width: 50px; }
 }
